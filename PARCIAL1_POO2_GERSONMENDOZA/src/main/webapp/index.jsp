@@ -34,6 +34,7 @@
                         <a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i> Inicio</a>
                         <a href="Alumno.jsp"><i class="fa fa-fw fa-dashboard"></i> Alumnos</a>
                         <a href="grupoalumno.jsp"><i class="fa fa-fw fa-dashboard"></i> Grupos Alumnos</a>
+                        <a href="Reporte.jsp"><i class="fa fa-fw fa-dashboard"></i> Reporte</a>
                     </li>
                 </ul>
             </div>

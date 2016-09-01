@@ -61,7 +61,7 @@ public class AlumnosCtrl {
        
     }
      
-    public Alumnos get(Long empId)
+    public Alumnos get(int empId)
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU1");
         EntityManager em = emf.createEntityManager();

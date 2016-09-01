@@ -37,25 +37,19 @@ public class GrupAlumServ extends HttpServlet {
             String CRUD = request.getParameter("grupAlumBton");
             if(CRUD.equals("Guardar"))
             {
-                Alumnos obje1 = new AlumnosCtrl().get(Long.parseLong(request.getParameter("codiAlum")));
-                Grupos obje2 = new GruposCtrl().get(Long.parseLong(request.getParameter("codiGrup")));
+                Alumnos obje1 = new AlumnosCtrl().get(Integer.parseInt(request.getParameter("codiAlum")));
+                Grupos obje2 = new GruposCtrl().get(Integer.parseInt(request.getParameter("codiGrup")));
                 GruposAlumnos obje = new GruposAlumnos();
+                obje.setEstaGrupAlum('1');
                 obje.setCodiGrup(obje2);
                 obje.setCodiAlum(obje1);
-                obje.setEstaGrupAlum('a');
                 mens = new GruposAlumnosCtrl().guar(obje) ? "Datos guardados exitosamente" : "Datos NO guardados";
             }
-            /*else if(CRUD.equals("Consultar"))
+            else if(CRUD.equals("Consultar"))
             {
-                Long CodiLuga = Long.parseLong(request.getParameter("codiPersRadio") == null ? 
-                        "0" : request.getParameter("codiPersRadio"));
-                LugaAcce objeLuga = new LugaAcceCtrl().get(CodiLuga);
-                if(objeLuga != null)
-                {
-                    request.setAttribute("CodiLuga", objeLuga.getCodiLugaAcce());
-                    request.setAttribute("nombLuga", objeLuga.getNombLugaAcce());
-                }
-            }*/
+                int codiGrup = Integer.parseInt(request.getParameter("grup"));
+                    request.setAttribute("Grupo", codiGrup);
+            }
         request.setAttribute("mensAler", mens);
         request.getRequestDispatcher("/grupoalumno.jsp").forward(request, response);
         }

@@ -41,7 +41,7 @@ public class GruposCtrl {
        
     }
      
-    public Grupos get(Long empId)
+    public Grupos get(int empId)
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU1");
         EntityManager em = emf.createEntityManager();

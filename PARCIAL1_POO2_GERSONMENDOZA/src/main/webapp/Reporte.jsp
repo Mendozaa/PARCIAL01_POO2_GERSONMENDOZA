@@ -66,54 +66,13 @@
                         </ol>
                     </div>
                 </div>
-                
-                <div class="row">
-                    <div class="col-lg-12">
-                        <form role="form" name="alumBton" method="POST" action="GrupAlumServ">
-                            <div class="form-group">
-                                <label>Alumno</label>
-                                <select name="codiAlum" class="form-control">
-                                    <jsp:useBean id="alum" class="com.sv.udb.controlador.AlumnosCtrl" scope="page"/>
-                                    <c:forEach items="${alum.consTodo()}" var="fila">
-                                        <c:choose>
-                                            <c:when test="${fila.codiAlum eq codiAlum}">
-                                                <option value="${fila.codiAlum}" selected="">${fila.nombAlum}</option>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <option value="${fila.codiAlum}">${fila.nombAlum}</option>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Grupo</label>
-                                <select name="codiGrup" class="form-control">
-                                    <jsp:useBean id="grupo" class="com.sv.udb.controlador.GruposCtrl" scope="page"/>
-                                    <c:forEach items="${grupo.consTodo()}" var="fila">
-                                        <c:choose>
-                                            <c:when test="${fila.codiGrup eq codiGrup}">
-                                                <option value="${fila.codiGrup}" selected="">${fila.nombGrup}</option>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <option value="${fila.codiGrup}">${fila.nombGrup}</option>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                            <input type="submit" name="grupAlumBton" value="Guardar" class="btn btn-primary"/>
-                        </form>
-                    </div>
-                </div>
-                        <hr>
-                        <h1>CONSULTAR</h1>
-                        <form method="POST" name="FrmGrupo" action="GrupAlumServ">
+                                    
+                        <form method="POST" name="FrmGrupo" action="Scripts/report1.jsp">
                             <div class="form-group">
                                 <label>Grupo</label>
                                 <select name="grup" class="form-control">
-                                    <jsp:useBean id="grupo1" class="com.sv.udb.controlador.GruposCtrl" scope="page"/>
-                                    <c:forEach items="${grupo1.consTodo()}" var="fila">
+                                    <jsp:useBean id="grupo2" class="com.sv.udb.controlador.GruposCtrl" scope="page"/>
+                                    <c:forEach items="${grupo2.consTodo()}" var="fila">
                                         <c:choose>
                                             <c:when test="${fila.codiGrup eq Grupo}">
                                                 <option value="${fila.codiGrup}" selected="">${fila.nombGrup}</option>
@@ -126,20 +85,7 @@
                                 </select>
                             </div>
                             <input type="submit" name="grupAlumBton" value="Consultar" class="btn btn-primary"/>
-                        </form>              
-                        <div class="row" id="table" >
-                <form method="POST" name="Frm" action="GrupAlumServ">
-                    <% Object Codi = request.getAttribute("Grupo");
-                    
-                    %>
-                    <% request.setAttribute( "demoAttr", new GruposAlumnosCtrl().ConsTodo(Codi)); %>
-                <display:table id="Persona" name="demoAttr" class="table table-hover">
-                    <display:column property="codiAlum.nombAlum" title="Alumno" sortable="true"/>
-                    <display:column property="codiAlum.apelAlum" title="Apellido" sortable="true"/>
-                    <display:column property="codiGrup.nombGrup" title="Grupo" sortable="true"/>
-                </display:table>
-                </form>
-            </div>
+                        </form>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
